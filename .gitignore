@@ -38,3 +38,7 @@ client/dist
 # Composer dependencies
 vendor/
 server/vendor/
+
+# Local configuration
+.agyrules
+

@@ -146,7 +146,7 @@ export const MOCK_WORKSPACES: Workspace[] = [
         id: 'chn_lum_general',
         name: 'general',
         type: 'public',
-        topic: 'Vector DB & AI Embeddings Infrastructure',
+        topic: 'Vector DB & Semantic Search Infrastructure',
         membersCount: 14,
       },
     ],
