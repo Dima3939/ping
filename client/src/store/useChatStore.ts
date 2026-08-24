@@ -44,6 +44,7 @@ interface ChatStore {
   users: User[];
   typingUsers: Record<string, string[]>; // channelId -> array of user names typing
   setUserStatus: (status: User['status'], statusText?: string) => void;
+  updateCurrentUser: (data: Partial<User>) => void;
   setTyping: (channelId: string, userName: string, isTyping: boolean) => void;
 
   // Messages & Threads
@@ -87,6 +88,19 @@ export const useChatStore = create<ChatStore>((set, get) => {
   // Initialize dark mode from localStorage or media query
   const savedTheme = typeof window !== 'undefined' ? localStorage.getItem('ping_theme') : null;
   const initialDark = savedTheme === 'dark';
+
+  // Hydrate saved user profile from localStorage if exists
+  let initialUser = CURRENT_USER;
+  if (typeof window !== 'undefined') {
+    try {
+      const savedUserJson = localStorage.getItem('ping_user_profile');
+      if (savedUserJson) {
+        initialUser = { ...CURRENT_USER, ...JSON.parse(savedUserJson) };
+      }
+    } catch {}
+  }
+
+  const initialUsers = MOCK_USERS.map((u) => (u.id === initialUser.id ? initialUser : u));
 
   return {
     isDarkMode: initialDark,
@@ -282,18 +296,50 @@ export const useChatStore = create<ChatStore>((set, get) => {
     },
 
     // Users & Presence
-    currentUser: CURRENT_USER,
-    users: MOCK_USERS,
+    currentUser: initialUser,
+    users: initialUsers,
     typingUsers: {},
 
     setUserStatus: (status, statusText) => {
-      set((state) => ({
-        currentUser: {
+      set((state) => {
+        const updated = {
           ...state.currentUser,
           status,
-          statusText: statusText || state.currentUser.statusText,
-        },
-      }));
+          statusText: statusText !== undefined ? statusText : state.currentUser.statusText,
+        };
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.setItem('ping_user_profile', JSON.stringify(updated));
+          } catch {}
+        }
+        return {
+          currentUser: updated,
+          users: state.users.map((u) => (u.id === updated.id ? updated : u)),
+        };
+      });
+    },
+
+    updateCurrentUser: (data) => {
+      soundFX.playClick();
+      set((state) => {
+        const updatedUser = {
+          ...state.currentUser,
+          ...data,
+        };
+
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.setItem('ping_user_profile', JSON.stringify(updatedUser));
+          } catch {}
+        }
+
+        return {
+          currentUser: updatedUser,
+          users: state.users.map((u) => (u.id === updatedUser.id ? updatedUser : u)),
+          selectedUserProfile:
+            state.selectedUserProfile?.id === updatedUser.id ? updatedUser : state.selectedUserProfile,
+        };
+      });
     },
 
     setTyping: (channelId, userName, isTyping) => {
