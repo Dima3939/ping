@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #FFFDF5;
+    --surface: #FFFFFF;
+    --surface-secondary: #F6F4EB;
+    --border-color: #121212;
+    --shadow-color: #121212;
+    --text-primary: #121212;
+    --text-muted: #666666;
+    --accent-coral: #FF5A36;
+    --accent-mint: #00D2B4;
+    --accent-yellow: #FFD13B;
+    --accent-lavender: #C4B5FD;
+  }
+
+  .dark {
+    --bg-canvas: #121214;
+    --surface: #1C1C21;
+    --surface-secondary: #24242C;
+    --border-color: #383844;
+    --shadow-color: #000000;
+    --text-primary: #F4F4F5;
+    --text-muted: #A1A1AA;
+    --accent-coral: #FF6B4A;
+    --accent-mint: #10E5C5;
+    --accent-yellow: #FACC15;
+    --accent-lavender: #DDD6FE;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Neobrutalism Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D0C5;
+  border: 1.5px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3F3F46;
+  border: 1.5px solid #27272A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A39E92;
+}
+
+/* Neobrutalism Button Utilities */
+.brutal-press {
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.brutal-press:hover {
+  transform: translate(-2px, -2px);
+}
+
+.brutal-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--shadow-color) !important;
+}
+
+/* Subtle dotted pattern for canvas background */
+.bg-dots {
+  background-image: radial-gradient(rgba(18, 18, 18, 0.06) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+  background-position: 0 0;
+}
+
+.dark .bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+}
+
+/* Audio waveform bars animation */
+@keyframes wavePulse {
+  0%, 100% { height: 20%; }
+  50% { height: 100%; }
+}
+
+.animate-wave-1 { animation: wavePulse 0.8s infinite ease-in-out; }
+.animate-wave-2 { animation: wavePulse 0.8s infinite ease-in-out 0.2s; }
+.animate-wave-3 { animation: wavePulse 0.8s infinite ease-in-out 0.4s; }
+.animate-wave-4 { animation: wavePulse 0.8s infinite ease-in-out 0.6s; }

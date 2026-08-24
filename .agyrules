@@ -1,0 +1,22 @@
+# Ping — Project Architecture & Development Rules
+
+## 1. Project Overview & Identity
+- **Project Name**: Ping
+- **Role**: Portfolio Project #4 (Full-Stack Real-Time Team Messenger)
+- **Tagline**: The High-Velocity, Zero-Latency Team Messenger with Neobrutalism UX
+- **Frontend Stack**: React 19, TypeScript, Vite, Tailwind CSS, Zustand, Lucide Icons, Canvas Confetti
+- **Backend Stack**: Laravel 11, Laravel Reverb (WebSockets), Laravel Sanctum, Redis, PostgreSQL/SQLite
+- **Design Aesthetic**: Neobrutalism (2.5px solid black borders, 4px/6px solid offset drop shadows, vibrant pop colors, warm cream canvas `#FFFDF5`, tactile micro-interactions)
+
+## 2. Core Architectural Principles
+- **Zero-Latency Optimistic UI**: All user messages, emoji reactions, and thread replies render immediately with client-generated `UUIDv4` identifiers before network roundtrips.
+- **WebSocket Protocol**: Fully structured around Laravel Reverb broadcasting events (`MessageSent`, `UserTyping`, `ReactionUpdated`, `UserPresence`).
+- **Tactile Audio Feedback**: Subtle synthesized web audio clicks, message sent pops, and notification sounds with mute toggle.
+- **Canvas-Rendered Audio Waveforms**: Interactive voice note recorder and waveform player.
+- **Code & Media Richness**: Syntax highlighting for code blocks with one-click copy, inline file attachments, and thread drawers.
+
+## 3. Strict Coding & Quality Standards
+- **Strict English**: All variable names, function signatures, comments, documentation, and Git commit messages must be strictly in English.
+- **Zero AI Mentions**: Absolutely no mentions of AI, LLMs, prompt generation, or automated tools anywhere in code or user-facing metadata.
+- **Mobile Responsiveness**: Zero horizontal overflow on viewports down to 320px–375px (iPhone XS, iPhone 15 Pro, Android).
+- **TypeScript Strict Mode**: No `any` types; all message payloads, channel states, and event handlers are strictly typed.
