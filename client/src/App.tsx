@@ -12,7 +12,6 @@ import { CreateChannelModal } from './components/modals/CreateChannelModal';
 import { CreateWorkspaceModal } from './components/modals/CreateWorkspaceModal';
 import { UserProfileModal } from './components/modals/UserProfileModal';
 import { ActiveCallModal } from './components/modals/ActiveCallModal';
-import { AboutModal } from './components/modals/AboutModal';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 
 export const App: React.FC = () => {
@@ -114,7 +113,6 @@ export const App: React.FC = () => {
       <CreateWorkspaceModal />
       <UserProfileModal />
       <ActiveCallModal />
-      <AboutModal />
     </div>
   );
 };
