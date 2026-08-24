@@ -4,8 +4,10 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white&style=flat-square)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css&logoColor=white&style=flat-square)](https://tailwindcss.com/)
-[![Laravel Reverb](https://img.shields.io/badge/Laravel_Reverb-11.0-FF2D20?logo=laravel&logoColor=white&style=flat-square)](https://laravel.com/docs/11.x/reverb)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-22C55E?logo=githubpages&logoColor=white&style=flat-square)](https://dima3939.github.io/ping/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+
+> 🚀 **Live Interactive Demo**: [https://dima3939.github.io/ping/](https://dima3939.github.io/ping/)
 
 > A high-velocity, zero-latency **Real-Time Team Messenger** built with **React 19, TypeScript, Tailwind CSS, and Laravel 11 Reverb WebSockets**. Featuring an authentic **Neobrutalism design system**, instant optimistic updates, voice notes with canvas waveforms, threaded discussions, and live presence telemetry.
 
