@@ -1,6 +1,6 @@
 import React from 'react';
 import { useChatStore } from '../../store/useChatStore';
-import { Hash, Lock, Search, Sun, Moon, Phone, Menu, Sparkles } from 'lucide-react';
+import { Hash, Lock, Search, Sun, Moon, Phone, Menu, Sparkles, Info } from 'lucide-react';
 import { BrutalButton } from '../ui/BrutalButton';
 
 export const ChatHeader: React.FC = () => {
@@ -12,6 +12,7 @@ export const ChatHeader: React.FC = () => {
     toggleDarkMode,
     setSearchModalOpen,
     setMobileSidebarOpen,
+    setAboutModalOpen,
     triggerSimulatedIncomingMessage,
   } = useChatStore();
 
@@ -92,6 +93,17 @@ export const ChatHeader: React.FC = () => {
           onClick={() => useChatStore.getState().startCall()}
         >
           <Phone size={16} />
+        </BrutalButton>
+
+        {/* About App Info */}
+        <BrutalButton
+          variant="ghost"
+          size="icon"
+          className="w-9 h-9 rounded-xl border-2 border-transparent hover:border-brutal-black text-zinc-700 dark:text-zinc-300 hover:text-brutal-coral p-0"
+          title="About Ping Messenger"
+          onClick={() => setAboutModalOpen(true)}
+        >
+          <Info size={17} />
         </BrutalButton>
 
         {/* Dark / Light Mode Toggle */}

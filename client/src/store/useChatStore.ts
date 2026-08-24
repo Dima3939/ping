@@ -71,11 +71,13 @@ interface ChatStore {
   isSearchModalOpen: boolean;
   isCreateChannelModalOpen: boolean;
   isCreateWorkspaceModalOpen: boolean;
+  isAboutModalOpen: boolean;
   selectedUserProfile: User | null;
   isMobileSidebarOpen: boolean;
   setSearchModalOpen: (open: boolean) => void;
   setCreateChannelModalOpen: (open: boolean) => void;
   setCreateWorkspaceModalOpen: (open: boolean) => void;
+  setAboutModalOpen: (open: boolean) => void;
   setSelectedUserProfile: (user: User | null) => void;
   setMobileSidebarOpen: (open: boolean) => void;
 
@@ -541,12 +543,14 @@ export const useChatStore = create<ChatStore>((set, get) => {
     isSearchModalOpen: false,
     isCreateChannelModalOpen: false,
     isCreateWorkspaceModalOpen: false,
+    isAboutModalOpen: false,
     selectedUserProfile: null,
     isMobileSidebarOpen: false,
 
     setSearchModalOpen: (open) => set({ isSearchModalOpen: open }),
     setCreateChannelModalOpen: (open) => set({ isCreateChannelModalOpen: open }),
     setCreateWorkspaceModalOpen: (open) => set({ isCreateWorkspaceModalOpen: open }),
+    setAboutModalOpen: (open) => set({ isAboutModalOpen: open }),
     setSelectedUserProfile: (user) => set({ selectedUserProfile: user }),
     setMobileSidebarOpen: (open) => set({ isMobileSidebarOpen: open }),
 
